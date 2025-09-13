@@ -6,9 +6,9 @@ const CACHE_NAME = "logistik-arga-v1.0.1";
 // jadi kita fokus pada file inti dulu.
 const urlsToCache = [
     // "/",
-    "/css/app.css", // Sesuaikan dengan path CSS Anda jika menggunakan Vite/Asset Build
-    "/js/app.js", // Sesuaikan dengan path JS Anda jika menggunakan Vite/Asset Build
-    "/logo.png", // Ikon dari manifest
+    // "/css/app.css", // Sesuaikan dengan path CSS Anda jika menggunakan Vite/Asset Build
+    // "/js/app.js", // Sesuaikan dengan path JS Anda jika menggunakan Vite/Asset Build
+    // "/logo.png", // Ikon dari manifest
     // Tambahkan file statis penting lainnya jika perlu
 ];
 
