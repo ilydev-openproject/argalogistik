@@ -17,10 +17,17 @@ class LoginController extends Controller
     // Memproses usaha login
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
+        $credentials = $request->validate(
+            [
+                'email' => ['required', 'email'],
+                'password' => ['required'],
+            ],
+            [
+                'email.required' => 'Email wajib diisi.',
+                'email.email' => 'Format email tidak valid.',
+                'password.required' => 'Password wajib diisi.',
+            ]
+        );
 
         // Coba login menggunakan penjaga 'logistik'
         if (Auth::guard('logistik')->attempt($credentials)) {

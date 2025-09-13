@@ -37,9 +37,9 @@
                                 type="email" name="email" value="{{ old('email') }}" required autofocus
                                 placeholder="Masukkan email Anda" />
                         </div>
-                        @error('email')
+                        <!-- @error('email')
                             <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
-                        @enderror
+                        @enderror -->
                     </label>
 
                     <!-- Password -->
@@ -61,7 +61,7 @@
 
                     <!-- Error Message untuk login gagal (bukan validasi) -->
                     @if ($errors->has('email') || session('error'))
-                        <div class="bg-red-50 border-l-4 border-red-500 text-red-700 p-3 rounded text-sm">
+                        <div class="bg-red-50 border-l-4 border-red-500 text-red-700 p-3 rounded text-sm mt-4">
                             {{ $errors->first('email') ?? session('error') }}
                         </div>
                     @endif

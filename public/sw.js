@@ -1,5 +1,5 @@
 // Versi cache Anda. Naikkan versi ini saat Anda mengubah file cache.
-const CACHE_NAME = "logistik-arga-v2";
+const CACHE_NAME = "logistik-arga-v1.0";
 // Daftar file yang ingin Anda cache (secara statis).
 // Anda bisa menambahkan CSS, JS, gambar penting lainnya.
 // Untuk aplikasi Laravel, caching dinamis lebih kompleks,
