@@ -1,5 +1,5 @@
 // Versi cache Anda. Naikkan versi ini saat Anda mengubah file cache.
-const CACHE_NAME = "logistik-arga-v1";
+const CACHE_NAME = "logistik-arga-v2";
 // Daftar file yang ingin Anda cache (secara statis).
 // Anda bisa menambahkan CSS, JS, gambar penting lainnya.
 // Untuk aplikasi Laravel, caching dinamis lebih kompleks,
@@ -66,16 +66,6 @@ self.addEventListener("fetch", (event) => {
                     return response;
                 }
 
-                // Penting: JANGAN cache respons API atau halaman dinamis sensitif
-                // Kecuali Anda benar-benar yakin. Ini bisa menyebabkan masalah data.
-                // Untuk contoh ini, kita tidak akan meng-cache respons dinamis.
-                // Anda bisa menambahkan logika untuk memfilter request di sini jika perlu.
-                // if (event.request.url.includes('/api/')) {
-                //   return response; // Jangan cache API
-                // }
-
-                // Jika ingin meng-cache respons jaringan (misalnya untuk CSS/JS statis):
-                // Buat salinan respons karena stream hanya bisa dibaca sekali
                 var responseToCache = response.clone();
 
                 caches.open(CACHE_NAME).then((cache) => {

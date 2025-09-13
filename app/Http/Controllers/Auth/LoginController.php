@@ -9,29 +9,36 @@ use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
-    public function login(Request $request)
+    public function showLoginForm()
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
-        if (Auth::attempt($request->only('email', 'password'))) {
-            $request->session()->regenerate();
-            return redirect()->intended('/logistik');
-        }
-
-        throw ValidationException::withMessages([
-            'email' => ['Email atau password salah.'],
-            // email
-        ]);
+        return view('auth.login'); // Kita bisa pakai view login yang sama
     }
 
+    // Memproses usaha login
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        // Coba login menggunakan penjaga 'logistik'
+        if (Auth::guard('logistik')->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/logistik'); // Arahkan ke dashboard logistik
+        }
+
+        return back()->withErrors([
+            'email' => 'Email atau password salah.',
+        ])->onlyInput('email');
+    }
+
+    // Proses logout
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::guard('logistik')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login')->with('success', 'Anda telah keluar.');
+        return redirect('/logistik/login');
     }
 }

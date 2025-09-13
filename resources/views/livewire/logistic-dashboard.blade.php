@@ -126,7 +126,7 @@
                         </span>
                         <span class="text-sm text-slate-700 whitespace-nowrap">Setting</span>
                     </a>
-                    <form method="POST" action="{{ route('logout') }}"
+                    <form method="POST" action="{{ route('logistic.logout') }}"
                         class="flex flex-col items-center justify-center">
                         @csrf
                         <button type="submit"

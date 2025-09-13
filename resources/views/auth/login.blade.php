@@ -1,5 +1,5 @@
 <x-layouts.app>
-    <div class="relative flex size-full min-h-screen flex-col bg-slate-500 justify-center items-center group/design-root overflow-x-hidden p-4"
+    <div class="relative flex max-w-sm mx-auto min-h-screen flex-col bg-slate-500 justify-center items-center group/design-root overflow-x-hidden p-4"
         style='font-family: Manrope, "Noto Sans", sans-serif;'>
         <!-- Background Image -->
         <div class="absolute top-0">
@@ -15,17 +15,17 @@
                 <h1 class="text-4xl font-bold text-slate-900">Arga Logistik</h1>
             </div>
 
-            <div class="flex flex-col items-center w-full max-w-sm">
+            <div class="flex flex-col items-center w-full">
                 <div class="text-center mb-10">
                     <p class="text-slate-600 mt-2">Catat pengeluaran belanja Anda dengan mudah.</p>
                 </div>
 
                 <!-- FORM LOGIN -->
-                <form method="POST" action="{{ route('login.post') }}" class="w-full space-y-4">
+                <form method="POST" class="w-full" action="{{ route('logistic.login.post') }}">
                     @csrf
 
                     <!-- Email/Nama Pengguna -->
-                    <label class="flex flex-col gap-2">
+                    <label class="flex flex-col gap-2 mb-2">
                         <p class="text-slate-700 text-sm font-medium">Email atau Nama Pengguna</p>
                         <div class="relative">
                             <span

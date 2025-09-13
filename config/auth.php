@@ -40,6 +40,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        // TAMBAHKAN BLOK INI
+        'logistik' => [
+            'driver' => 'session',
+            'provider' => 'logistic_users',
+        ],
     ],
 
     /*
@@ -62,13 +68,14 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
+            'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        // TAMBAHKAN BLOK INI
+        'logistic_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\LogisticUser::class,
+        ],
     ],
 
     /*

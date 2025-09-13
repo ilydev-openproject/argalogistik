@@ -4,19 +4,16 @@ use App\Livewire\LogisticPurchase;
 use App\Livewire\LogisticDashboard;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Auth\LoginController;
+
 // Halaman Login
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
-
-// Proses Login
-Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login.post');
-
-// Logout
-Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+Route::get('/logistik/login', [LoginController::class, 'showLoginForm'])->name('logistic.login');
+Route::post('/logistik/login', [LoginController::class, 'login'])->name('logistic.login.post');
+Route::post('/logistik/logout', [LoginController::class, 'logout'])->name('logistic.logout');
 
 // Halaman Dashboard (utama setelah login)
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth:logistik'])->prefix('logistik')->group(function () {
+    Route::get('/', LogisticDashboard::class)->name('logistic.dashboard');
     Route::get('/logistik', LogisticDashboard::class)->name('logistic.dashboard');
     Route::get('/logistik/pembelian', LogisticPurchase::class)->name('logistic.purchase');
     Route::get('/logistik/history', function () {
@@ -30,5 +27,5 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/coming-soon', [PageController::class, 'comingSoon'])->name('coming.soon');
 // Redirect root ke login
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('logistic.login');
 });
