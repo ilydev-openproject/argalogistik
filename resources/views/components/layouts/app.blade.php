@@ -5,7 +5,7 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
     <!-- Meta Tags untuk PWA -->
-    <meta name="theme-color" content="#38e07b" /> <!-- Sesuaikan dengan theme_color di manifest -->
+    <!-- <meta name="theme-color" content="#38e07b" /> Sesuaikan dengan theme_color di manifest -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Logistik Arga">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -26,12 +26,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
-    @fluxAppearance
 </head>
 
 <body>
     {{ $slot }}
-    @fluxScripts
     <script>
         // Cek apakah browser mendukung Service Worker
         if ('serviceWorker' in navigator) {
