@@ -23,6 +23,7 @@ class LoginController extends Controller
 
         throw ValidationException::withMessages([
             'email' => ['Email atau password salah.'],
+            // email
         ]);
     }
 
