@@ -1,5 +1,5 @@
 <x-layouts.app>
-    <div class="relative flex max-w-md mx-auto min-h-screen flex-col bg-slate-500 justify-center items-center group/design-root overflow-x-hidden p-4"
+    <div class="relative flex mx-auto min-h-screen flex-col bg-slate-500 justify-center items-center group/design-root overflow-x-hidden p-4"
         style='font-family: Manrope, "Noto Sans", sans-serif;'>
         <!-- Background Image -->
         <div class="absolute top-0">
