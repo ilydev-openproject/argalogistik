@@ -5,7 +5,7 @@ const CACHE_NAME = "logistik-arga-v1.0";
 // Untuk aplikasi Laravel, caching dinamis lebih kompleks,
 // jadi kita fokus pada file inti dulu.
 const urlsToCache = [
-    "/",
+    // "/",
     "/css/app.css", // Sesuaikan dengan path CSS Anda jika menggunakan Vite/Asset Build
     "/js/app.js", // Sesuaikan dengan path JS Anda jika menggunakan Vite/Asset Build
     "/logo.png", // Ikon dari manifest
