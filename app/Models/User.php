@@ -3,16 +3,26 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Filament\Panel;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+    public function canAccessPanel(Panel $panel): bool
+    {
+        // Untuk sekarang, kita izinkan semua user yang terdaftar di tabel 'users' untuk masuk.
+        // Anda bisa menambahkan logika lain di sini nanti.
+        // Contoh: return $this->is_admin;
+        // Contoh: return str_ends_with($this->email, '@arga.com');
+
+        return true;
+    }
     /**
      * The attributes that are mass assignable.
      *
