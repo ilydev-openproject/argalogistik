@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <h2 class="text-3xl font-bold text-white">
-                            Rp {{ number_format($totalSpent, 0, ',', '.') }}
+                            Rp {{ shortNumber($totalSpent) }}
                         </h2>
                         <p class="text-slate-100 text-sm mt-1">Total Pengeluaran</p>
                     </div>
