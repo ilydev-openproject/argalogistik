@@ -23,7 +23,7 @@
                 <!-- FORM LOGIN -->
                 <form method="POST" action="{{ route('login') }}" class="w-full space-y-4">
                     @csrf
-
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <!-- Email/Nama Pengguna -->
                     <label class="flex flex-col gap-2">
                         <p class="text-slate-700 text-sm font-medium">Email atau Nama Pengguna</p>
