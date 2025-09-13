@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#ffffff",
     "description": "Aplikasi pencatatan belanja dan logistik untuk CV. Arga Jaya Konstruksi.",
-    "theme_color": "",
+    "theme_color": "#ffffff",
     "icons": [
         {
             "src": "/logo.png",

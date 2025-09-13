@@ -30,7 +30,7 @@ class LoginController extends Controller
         );
 
         // Coba login menggunakan penjaga 'logistik'
-        if (Auth::guard('logistik')->attempt($credentials)) {
+        if (Auth::guard('logistik')->attempt($credentials, true)) {
             $request->session()->regenerate();
             return redirect()->intended('/logistik'); // Arahkan ke dashboard logistik
         }
