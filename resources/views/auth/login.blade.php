@@ -22,7 +22,7 @@
 
                 <!-- FORM LOGIN -->
                 <form method="POST" action="{{ route('login.post') }}" class="w-full space-y-4">
-                    @csrf_token()
+                    @csrf
 
                     <!-- Email/Nama Pengguna -->
                     <label class="flex flex-col gap-2">
