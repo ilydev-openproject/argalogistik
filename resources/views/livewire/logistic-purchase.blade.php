@@ -3,7 +3,7 @@
         class="group/design-root relative flex size-full min-h-screen flex-col justify-between overflow-x-hidden bg-slate-50 pt-6"
         style='font-family: Manrope, "Noto Sans", sans-serif;'>
         <div>
-            <div class="flex items-center bg-white p-4 pb-4">
+            <div class="flex items-center p-4 pb-4">
                 {{-- Tombol Kembali --}}
                 <a href="{{ route('logistic.dashboard') }}" class="text-slate-700">
                     <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
