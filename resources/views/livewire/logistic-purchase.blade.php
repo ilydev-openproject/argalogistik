@@ -146,21 +146,26 @@
                                     <span class="text-xs text-red-500">{{ $message }}</span>
                                 @enderror
                             </label>
+                            <!-- Qty -->
                             <label class="flex flex-col gap-2">
                                 <p class="text-sm font-medium text-slate-700">Qty *</p>
                                 <input wire:model.live="newItem.quantity"
+                                    wire:blur="$set('newItem.quantity', (float) ($newItem['quantity'] ?? 0))"
                                     class="form-input flex h-12 w-full rounded-lg border-slate-300 border bg-white p-3 text-base text-slate-900 placeholder:text-slate-400"
                                     placeholder="0.00" type="number" min="0" step="0.01" />
                                 @error('newItem.quantity')
                                     <span class="text-xs text-red-500">{{ $message }}</span>
                                 @enderror
                             </label>
+
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">
+                            <!-- Harga Satuan -->
                             <label class="flex flex-col gap-2">
                                 <p class="text-sm font-medium text-slate-700">Harga Satuan</p>
                                 <input wire:model.live="newItem.unit_price"
+                                    wire:blur="$set('newItem.unit_price', (float) ($newItem['unit_price'] ?? 0))"
                                     class="form-input flex h-12 w-full rounded-lg border-slate-300 border bg-white p-3 text-base text-slate-900 placeholder:text-slate-400"
                                     placeholder="Harga Satuan" type="number" min="0" step="0.01" />
                                 @error('newItem.unit_price')
@@ -168,11 +173,13 @@
                                 @enderror
                             </label>
 
+                            <!-- Diskon -->
                             <label class="flex flex-col gap-2">
                                 <p class="text-sm font-medium text-slate-700">Diskon</p>
                                 <input wire:model.live="newItem.discount_amount"
+                                    wire:blur="$set('newItem.discount_amount', (float) ($newItem['discount_amount'] ?? 0))"
                                     class="form-input flex h-12 w-full rounded-lg border-slate-300 border bg-white p-3 text-base text-slate-900 placeholder:text-slate-400"
-                                    placeholder="Diskon" type="number" min="0" value="0" step="0.01" />
+                                    placeholder="Diskon" type="number" min="0" step="0.01" value="0" />
                                 @error('newItem.discount_amount')
                                     <span class="text-xs text-red-500">{{ $message }}</span>
                                 @enderror
@@ -182,10 +189,12 @@
                         <!-- Total Price - Read Only -->
                         <div class="relative">
                             <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">Rp</span>
-                            <input
-                                value=" {{ number_format(($newItem['quantity'] ?? 0) * ($newItem['unit_price'] ?? 0) - ($newItem['discount_amount'] ?? 0), 0, ',', '.') }}"
-                                readonly
-                                class="form-input flex h-12 w-full rounded-lg border-slate-300 border bg-gray-100 p-3 pl-10 text-base font-bold text-slate-900 placeholder:text-slate-400" />
+                            <input value="{{ number_format(
+    (float) ($newItem['quantity'] ?? 0) * (float) ($newItem['unit_price'] ?? 0) - (float) ($newItem['discount_amount'] ?? 0),
+    0,
+    ',',
+    '.'
+) }}" readonly class="form-input flex h-12 w-full rounded-lg border-slate-300 border bg-gray-100 p-3 pl-10 text-base font-bold text-slate-900 placeholder:text-slate-400" />
                         </div>
 
                         <button wire:click="addItem" type="button"
