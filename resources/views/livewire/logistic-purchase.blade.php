@@ -86,22 +86,20 @@
                     <!-- Foto Nota -->
                     <div>
                         <p class="mb-2 text-sm font-medium text-slate-700">Foto Nota</p>
+
                         <div
-                            class="relative flex h-48 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-dashed border-slate-300  bg-slate-200">
+                            class="relative flex h-48 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-dashed border-slate-300 bg-slate-200">
+
+                            <!-- Input file -->
                             <input type="file" wire:model="receiptPhoto" accept="image/*"
                                 class="absolute inset-0 h-full w-full cursor-pointer opacity-0">
+
                             @if ($receiptPhoto)
                                 <!-- Preview jika file dipilih -->
                                 <div class="flex flex-col items-center">
-                                    @if ($receiptPhoto->isPreviewable())
-                                        <img src="{{ $receiptPhoto->temporaryUrl() }}"
-                                            class="max-h-full max-w-full object-contain">
-                                    @else
-                                        <span class="material-symbols-outlined text-4xl text-slate-500">description</span>
-                                        <p class="mt-1 text-sm text-slate-500">
-                                            {{ $receiptPhoto->getClientOriginalName() }}
-                                        </p>
-                                    @endif
+                                    <img src="{{ $receiptPhoto->temporaryUrl() }}"
+                                        class="max-h-40 object-contain rounded-md shadow-md">
+
                                     <button type="button" wire:click="$set('receiptPhoto', null)"
                                         class="mt-2 text-xs text-red-500 hover:text-red-700">
                                         Hapus
@@ -111,10 +109,11 @@
                                 <!-- Placeholder jika belum ada file -->
                                 <div class="text-center text-slate-500">
                                     <span class="material-symbols-outlined text-4xl">add_a_photo</span>
-                                    <p class="mt-1 text-sm">Klik untuk Tambah Foto</p>
+                                    <p class="mt-1 text-sm">Klik untuk pilih Kamera / Galeri</p>
                                 </div>
                             @endif
                         </div>
+
                         @error('receiptPhoto')
                             <span class="mt-1 text-xs text-red-500">{{ $message }}</span>
                         @enderror
