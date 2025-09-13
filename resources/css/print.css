@@ -1,0 +1,17 @@
+@media print {
+    body > *:not(.print-area) {
+        display: none !important;
+    }
+    .print-area {
+        display: block !important;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    thead th {
+        background: #ddd !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
