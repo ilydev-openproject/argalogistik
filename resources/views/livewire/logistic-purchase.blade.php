@@ -183,7 +183,7 @@
                         <div class="relative">
                             <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">Rp</span>
                             <input
-                                value=" {{ number_format(($newItem['quantity'] ?? 0) * ($newItem['unit_price'] ?? 0) - ($newItem['discount_amount'] ?? 0), 0, ',', '.') }}"
+                                value="Rp {{ number_format(($newItem['quantity'] ?? 0) * ($newItem['unit_price'] ?? 0) - ($newItem['discount_amount'] ?? 0), 0, ',', '.') }}"
                                 readonly
                                 class="form-input flex h-12 w-full rounded-lg border-slate-300 border bg-gray-100 p-3 pl-10 text-base font-bold text-slate-900 placeholder:text-slate-400" />
                         </div>
