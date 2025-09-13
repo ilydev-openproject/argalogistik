@@ -7,7 +7,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\Auth\LoginController;
 
 // Halaman Login
-Route::get('/logistik/login', [LoginController::class, 'showLoginForm'])->name('logistic.login');
+// Route::get('/logistik/login', [LoginController::class, 'showLoginForm'])->name('logistic.login');
 Route::post('/logistik/login', [LoginController::class, 'login'])->name('logistic.login.post');
 Route::post('/logistik/logout', [LoginController::class, 'logout'])->name('logistic.logout');
 
@@ -27,5 +27,5 @@ Route::middleware(['auth:logistik'])->prefix('logistik')->group(function () {
 Route::get('/coming-soon', [PageController::class, 'comingSoon'])->name('coming.soon');
 // Redirect root ke login
 Route::get('/', function () {
-    return redirect()->route('logistic.login');
+    return redirect()->route('logistic.dashboard');
 });
